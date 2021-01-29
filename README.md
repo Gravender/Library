@@ -1,4 +1,4 @@
-A browser based Etch-A-Sketch
+A browser based basic Library
 
 
 [The Odin Project - Javascript Course](https://www.theodinproject.com/courses/javascript)
