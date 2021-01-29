@@ -25,6 +25,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
     width: 200px;
     height: 50px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
@@ -40,12 +41,15 @@ h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 95%;
+    margin: auto;
 }
 
 .book {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     height: 300px;
     width: 200px;
@@ -54,6 +58,7 @@ h1 {
     padding: 15px;
     margin: 25px;
     transition: 0.3s;
+    position: relative;
 }
 .book:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
@@ -74,6 +79,19 @@ h1 {
     margin-bottom: 20px; 
 }
 
+.readDiv{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.checkBook{
+    transform: scale(1.25);
+    background-image: linear-gradient(42deg, pink, plum , violet );
+}
+
+.checkForm{
+    transform: scale(1.5);
+}
 button:focus {outline:0;}
 
 #submitBtn{
@@ -86,6 +104,10 @@ button:focus {outline:0;}
     background-image: linear-gradient(42deg, pink, plum , violet );
 }
 
+#submitBtn:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
 .deleteBook{
     font-size: 20px;
     height: 35px;
@@ -96,6 +118,11 @@ button:focus {outline:0;}
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-image: linear-gradient(42deg, pink, plum , violet );
     transition: 0.3s;
+}
+
+.choiceDiv{
+    position: absolute;
+    bottom: 0;
 }
 .deleteBook:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
@@ -112,8 +139,13 @@ button:focus {outline:0;}
     font-size: 30px;
 }
 
+#bookForm:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
 #bookForm {
     align-items: center;
+    text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     border-radius: 20%;
     background-image: linear-gradient(42deg, pink, plum , violet , magenta , purple );

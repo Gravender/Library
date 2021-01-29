@@ -19,12 +19,14 @@
         <div id= 'textInput'>
           <p></p><input id="title" type="text" placeholder="Enter a title for a book?"></p>
           <p></p><input id="author" type="text" placeholder="Enter the author for it?"></p>
-          <p></p><input id="pages" type="text" placeholder="How many pages is it?"></p>
+          <p></p><input id="pages" type="number" placeholder="How many pages is it?"></p>
         </div>
-        <div id = 'checkBox'>
-          <p><input id="read" type="checkbox" value="yes"><label for="read">Read</label></p>
+        <div>
+          <div id = 'checkBox'>
+            <p><label for="read">Read</label><input class = 'checkForm' id="read" type="checkbox" value="yes"></p>
+          </div>
+          <button type="submit" form = 'form' id= 'submitBtn' eventListener>Submit</button>
         </div>
-        <button type="submit" form = 'form' id= 'submitBtn' eventListener>Submit</button>
       </form>
     </div>
     <div class = 'container' id = 'container'></div>
