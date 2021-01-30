@@ -24,15 +24,22 @@ function addBookToLibrary(){
     let read = document.getElementById("read");
 
     myLibrary.push(new Book(title.value, author.value, Number(pages.value), read.checked));
+    createData();
     updateLibrary();
     bookForm.reset();
 }
 function updateLibrary(){
+    const container = document.getElementById('container');
     while(container.firstChild){
         container.removeChild(container.lastChild);
     }
     myLibrary.forEach((element, index) => {
-        console.log(`book-${index}`);
+        createBook(element, index);
+    });
+}
+
+function createBook(element, index){
+    console.log(`book-${index}`);
         let book = document.createElement("div");
         let title = document.createElement("div");
         let author = document.createElement("div");
@@ -75,11 +82,12 @@ function updateLibrary(){
 
         deleteBook.addEventListener('click',    ()=>{
             myLibrary.splice(index, 1);
-            console.log(myLibrary);
+            createData();
             updateLibrary();
         });
         read.addEventListener('change', ()=>{
             element.read = !element.read;
+            createData();
             updateLibrary();
         });
         deleteBook.textContent = 'Remove';
@@ -97,46 +105,29 @@ function updateLibrary(){
         book.appendChild(choiceDiv);
 
         container.appendChild(book).className = "book";
-    });
 }
 
-function storageAvailable(type) {
-    var storage;
-    try {
-        storage = window[type];
-        var x = '__storage_test__';
-        storage.setItem(x, x);
-        storage.removeItem(x);
-        return true;
+function createData(){
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
+function restore(){
+    if(!localStorage.myLibrary){
+        updateLibrary();
     }
-    catch(e) {
-        return e instanceof DOMException && (
-            // everything except Firefox
-            e.code === 22 ||
-            // Firefox
-            e.code === 1014 ||
-            // test name field too, because code might not be present
-            // everything except Firefox
-            e.name === 'QuotaExceededError' ||
-            // Firefox
-            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-            // acknowledge QuotaExceededError only if there's something already stored
-            (storage && storage.length !== 0);
+    else{
+        let books = localStorage.getItem('myLibrary');
+        books = JSON.parse(books);
+        myLibrary = books;
+        updateLibrary();
     }
 }
 
-if (storageAvailable('localStorage')) {
-    // Yippee! We can use localStorage awesomeness
-}
-else {
-    // Too bad, no localStorage for us
-}
-myLibrary.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false));
+/* myLibrary.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false));
 myLibrary.push(new Book('The Lord Of the Rings', 'J.R.R. Tolkien', 900, true));
 myLibrary.push(new Book('The Martian', 'Steven Holmes', 354, false));
 myLibrary.push(new Book('Sherlock Holmes', 'David Straight', 5867, true));
 myLibrary.push(new Book('The Expanse', 'James C. Correy', 365, false));
-myLibrary.push(new Book('Percy Jackson', 'Rick Riordian', 576, true));
-const container = document.getElementById('container');
+myLibrary.push(new Book('Percy Jackson', 'Rick Riordian', 576, true)); */
 console.log(myLibrary);
-updateLibrary();
+restore();
