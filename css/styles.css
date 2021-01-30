@@ -171,3 +171,24 @@ button:focus {outline:0;}
     text-decoration: none;
     cursor: pointer;
 }
+
+a{
+    background-color: #DFBFDF;
+    color:rgb(77, 77, 77);
+    font-size: 25px;
+    font-weight: 700;
+    padding-right: 20px;
+    text-shadow: -1px 1.5px 0px rgba(138,43,226,0.4);
+}
+footer{
+    background-color: #DFBFDF;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    font-size: 25px;
+    font-weight: 700;
+    color: black;
+    text-shadow: -1px 1.5px 0px rgba(139,0,139,0.4);
+    text-align: right;
+    padding-bottom:4px;
+}
