@@ -3,7 +3,7 @@ A browser based basic Library
 
 [The Odin Project - Javascript Course](https://www.theodinproject.com/courses/javascript)
 
-[The Odin Project - Foundations Course - Etch-a-Sketch](https://www.theodinproject.com/courses/foundations/lessons/etch-a-sketch-project)
+[The Odin Project - Javascript - Library](https://www.theodinproject.com/courses/javascript/lessons/library)
 
 [Live demo](https://gravender.github.io/Library/)
 
